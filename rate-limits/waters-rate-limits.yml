@@ -4,84 +4,31 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Waters Corporation
 providerId: waters
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - Laboratory
   - Instruments
   - Analytics
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Waters Corporation API surface. Captures
-  per-tier quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values
-  to be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
-responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
+  - Contact Sales
+description: Waters Corporation does not publish a public developer API or rate-limit documentation.
+  Programmatic interfaces ship inside the Empower CDS / waters_connect informatics platforms and run
+  on customer-controlled infrastructure (on-prem or private cloud); throughput limits are governed by
+  the deployed environment and the enterprise contract, not by a public quota policy.
+notes: No public rate-limit documentation found on waters.com. Limits are environment- and contract-specific.
+sources:
+  - https://www.waters.com/nextgen/us/en.html
+responseCodes: {}
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Waters Corporation API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Waters Corporation API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Waters Corporation API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Waters Corporation API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
+  - name: Negotiated Throughput
     scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Waters Corporation API
+    metric: varies
+    limit: see Waters Corporation enterprise agreement
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  - name: Contract-Defined Limits
+    description: Throughput, concurrency, and burst behavior are defined per deployment in the enterprise
+      agreement and the deployment topology of Empower / waters_connect; consult your Waters account team.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

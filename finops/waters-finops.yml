@@ -1,5 +1,6 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
@@ -9,122 +10,55 @@ alignedWith:
 provider: Waters Corporation
 providerId: waters
 publisherName: Waters Corporation
-serviceCategory: API
+serviceCategory: Laboratory Informatics
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
   - Laboratory
   - Instruments
   - Analytics
   - FinOps
-  - Cost Management
   - FOCUS
-description: FinOps framework definition for the Waters Corporation API surface. Provides a FOCUS-aligned
-  mapping for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
-principles:
-  - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
-  - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
-  - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
-  - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+  - Contact Sales
+description: FinOps placement for Waters Corporation laboratory-informatics and analytical-instrument
+  software. Spend is governed by enterprise license + professional services contracts rather than
+  metered API usage; FOCUS mapping is limited until a billable API surface is published.
+notes: No public usage-billing API or invoice schema published. Meters and FOCUS columns reflect the
+  enterprise-license shape only.
+sources:
+  - https://www.waters.com/nextgen/us/en.html
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
+  pricingCategory: Enterprise License
+  billingFrequency: Per-Invoice
   billingCurrency: USD
   chargeCategories:
-    - Usage
     - Purchase
-    - Tax
-    - Credit
-    - Adjustment
-  chargeFrequency: Recurring
 focusColumns:
   ServiceName: Waters Corporation
-  ServiceCategory: Developer Tools / API
+  ServiceCategory: Laboratory Informatics
   ProviderName: Waters Corporation
   PublisherName: Waters Corporation
   InvoiceIssuerName: Waters Corporation
-  PricingCategory: Usage-Based
-  PricingUnit: request
   BillingCurrency: USD
-  ChargeCategory: Usage
 meters:
-  - name: api_requests
-    description: Count of billable API requests
-    unit: request
+  - name: enterprise_license
+    description: Negotiated enterprise license for Waters informatics software; not metered per call.
+    unit: varies
     aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
-      - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
-    aggregation: sum
-    dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
-    dimensions:
-      - api
-      - endpoint
-      - tier
-apis:
-  - name: Waters Corporation API
-    baseURL: https://api.waters.com
-    tags:
-      - Laboratory
-      - Instruments
-      - Analytics
-    serviceName: Waters Corporation API
-    serviceCategory: API
-unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+principles:
+  - name: Visibility
+    description: Spend visibility comes from procurement and contract records held with Waters; there
+      is no public usage telemetry API to query.
+  - name: Allocation
+    description: Allocate Waters spend to the lab(s), instrument fleet, and study programs using internal
+      cost-center tagging on the purchase order and software license.
+  - name: Optimization
+    description: Optimization levers are negotiated at renewal — license counts, module bundles, and
+      professional-services scope — rather than at per-call granularity.
+  - name: Accountability
+    description: Lab IT, scientific computing, or QC operations typically own Waters software spend and
+      coordinate renewals with Waters account management.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
