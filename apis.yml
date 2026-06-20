@@ -2,7 +2,7 @@ aid: waters
 url: https://raw.githubusercontent.com/api-evangelist/waters/refs/heads/main/apis.yml
 name: Waters Corporation
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Laboratory
   - Instruments
@@ -19,7 +19,7 @@ apis:
       - Laboratory
       - Instruments
       - Analytics
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     baseURL: https://api.waters.com
     humanURL: https://developer.waters.com
     properties:
