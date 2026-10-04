@@ -1,6 +1,6 @@
 aid: waters
 url: https://raw.githubusercontent.com/api-evangelist/waters/refs/heads/main/apis.yml
-name: Waters Corporation
+name: Waters
 type: Index
 deliveryModel:
   model: unknown
@@ -60,3 +60,4 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-legal-name: Waters Corporation
