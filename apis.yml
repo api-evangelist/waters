@@ -51,6 +51,12 @@ apis:
     description: >-
       The Waters Corporation API provides access to platform services and data for enterprise integration and automation.
 common:
+  - type: Plans
+    url: plans/waters-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/waters-rate-limits.yml
+  - type: FinOps
+    url: finops/waters-finops.yml
   - type: DomainSecurity
     url: security/waters-domain-security.yml
   - type: LinkedIn
