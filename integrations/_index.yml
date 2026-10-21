@@ -33,3 +33,75 @@
     detected: '2026-10-20'
   status: not-a-workflow
   arazzo: null
+- slug: waters-fda-establishment-registration-and-device-listing-ivd-surgical-specialties
+  label: FDA establishment registration and device listing (IVD / surgical specialties)
+  partner_name: FDA establishment registration and device listing (IVD / surgical specialties)
+  category: FDA-registered device establishment
+  type: contract
+  channel: regulator-register
+  evidence: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfRL/rl.cfm
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: openFDA device/registrationlisting (owner/operator, device listings by medical specialty)
+    standard: FDA establishment registration and device listing (21 CFR 807)
+    spec_file: null
+    role: fda-registered-owner-operator
+    registered_name: WATERS CORPORATION
+    matched_domain: waters.com
+    matched_by: domain
+    detected_by: sweep-ivd-diagnostics.py
+    detected: '2026-10-21'
+    listed_specialties:
+    - Clinical Chemistry
+    signal_note: 'REGULATED through the establishment registration: a registration is not a clearance, so no certified_products;
+      specialties are context, never counted'
+    identity: wikidata Q1322011 'Waters Corporation' P856 http://www.waters.com
+    identity_source: wikidata P856 (labelled provenance step; Kin 2026-10-15 decision 1)
+  status: not-a-workflow
+  arazzo: null
+- slug: waters-eudamed-eu-ivdr-manufacturers
+  label: EUDAMED (EU IVDR manufacturers)
+  partner_name: EUDAMED (EU IVDR manufacturers)
+  category: EU IVDR-registered manufacturer
+  type: contract
+  channel: regulator-register
+  evidence: https://ec.europa.eu/tools/eudamed/#/screen/search-eo/ef5ade51-7183-4476-8d88-41ea6934a501
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: EUDAMED public API (UDI-DI data, applicable legislation IVDR; actor public information)
+    standard: EU IVDR (Regulation (EU) 2017/746) manufacturer + UDI registration
+    spec_file: null
+    role: eudamed-ivdr-manufacturer
+    registered_name: Waters Corporation
+    matched_domain: waters.com
+    matched_by: domain
+    detected_by: sweep-ivd-diagnostics.py
+    detected: '2026-10-21'
+    register_id: US-MF-000025801
+    register_country: US
+    actor_status: active
+    domain_from: registered e-mail domain
+    trade_names_sample:
+    - ' MassTrak™ Steroid Serum Cal Set 3'
+    - 'MassTrak™ Endocrine Blank Calibrator '
+    - MassTrak™ Steroid Serum QC Set 2
+    - 'MassTrak™ Steroid Serum QC Set 3 '
+    - S/W w_connect base kit v. 3.2.0 LTS
+    certified_products:
+    - product: EU IVDR device registration, class A
+      product_type: IVDR class A
+      lapsed: false
+      statuses:
+      - on-the-market
+    - product: EU IVDR device registration, class B
+      product_type: IVDR class B
+      lapsed: false
+      statuses:
+      - on-the-market
+    signal_note: 'certified_products = one entry per IVDR RISK CLASS with registered devices, never per device;
+      lapsed when no device of that class is on the market. Self-filed actor registration: domain + name check +
+      country agreement, hand-reviewed'
+  status: not-a-workflow
+  arazzo: null
